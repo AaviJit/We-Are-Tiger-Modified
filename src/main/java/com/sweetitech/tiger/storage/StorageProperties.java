@@ -5,8 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("storage")
 public class StorageProperties {
 
-//      private String location = "/opt/tomcat/webapps/abc"; //for droplet
-    private String location = ""; // for local
+     private String location = "/opt/tomcat/webapps/abc"; //for droplet
+    /*private String location = ""; // for local*/
 
     // private String location = "upload-dir"; //for mac
 

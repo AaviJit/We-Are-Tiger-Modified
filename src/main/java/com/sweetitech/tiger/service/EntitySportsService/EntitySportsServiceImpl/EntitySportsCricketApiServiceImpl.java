@@ -3,8 +3,11 @@ package com.sweetitech.tiger.service.EntitySportsService.EntitySportsServiceImpl
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sweetitech.tiger.mapper.MapToCardCustomForOni;
 import com.sweetitech.tiger.model.EntitySportAPI.CompetitionMatches.Match;
+import com.sweetitech.tiger.model.EntitySportAPI.CompetitionTeams.Player;
 import com.sweetitech.tiger.model.EntitySportAPI.LiveMatch.LiveMatch;
 import com.sweetitech.tiger.model.EntitySportAPI.MatchScorecard.MatchScorecard;
+import com.sweetitech.tiger.model.EntitySportAPI.PlayerProfile.PlayerProfile;
+import com.sweetitech.tiger.model.EntitySportAPI.PlayerSearch.PlayerSearch;
 import com.sweetitech.tiger.model.EntitySportAPI.RecentMatches.RecentMatches;
 import com.sweetitech.tiger.model.cricketapi.*;
 import com.sweetitech.tiger.parser.sampleMatchScorecardParser;
@@ -355,4 +358,84 @@ public class EntitySportsCricketApiServiceImpl implements EntitySportsCricketApi
         }
     }
 
+    @Override
+    public List<Player> playerList() {
+
+        List<Player> playerList = new ArrayList<>();
+
+        try
+        {
+            URL urlMashrafe = new URL("https://rest.entitysport.com/v2/players/354?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile mashrafe = objectMapper.readValue(urlMashrafe, PlayerProfile.class);
+            mashrafe.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/mashrafe-mortaza-150x150.jpg");
+            playerList.add(mashrafe.getResponse().getPlayer());
+
+            URL urlTamim = new URL("https://rest.entitysport.com/v2/players/342?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile tamim = objectMapper.readValue(urlTamim, PlayerProfile.class);
+            tamim.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/tamim-iqbal-150x150.jpg");
+            playerList.add(tamim.getResponse().getPlayer());
+
+            URL urlShakib = new URL("https://rest.entitysport.com/v2/players/348?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile shakib = objectMapper.readValue(urlShakib, PlayerProfile.class);
+            shakib.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/shakib-al-hasan-150x150.jpg");
+            playerList.add(shakib.getResponse().getPlayer());
+
+            URL urlMahmudullah = new URL("https://rest.entitysport.com/v2/players/346?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile mahmudullah = objectMapper.readValue(urlMahmudullah, PlayerProfile.class);
+            mahmudullah.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/mahmudullah-150x150.jpg");
+            playerList.add(mahmudullah.getResponse().getPlayer());
+
+            URL urlMushfiq = new URL("https://rest.entitysport.com/v2/players/350?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile mushfiq = objectMapper.readValue(urlMushfiq, PlayerProfile.class);
+            mushfiq.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/mushfiqur-rahim-150x150.jpg");
+            playerList.add(mushfiq.getResponse().getPlayer());
+
+            URL urlLiton = new URL("https://rest.entitysport.com/v2/players/37360?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile liton = objectMapper.readValue(urlLiton, PlayerProfile.class);
+            liton.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/03/liton-das-150x150.jpg");
+            playerList.add(liton.getResponse().getPlayer());
+
+            URL urlMustafiz = new URL("https://rest.entitysport.com/v2/players/1745?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile mustafiz = objectMapper.readValue(urlMustafiz, PlayerProfile.class);
+            mustafiz.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/02/mustafizur-rahman-1-150x150.jpg");
+            playerList.add(mustafiz.getResponse().getPlayer());
+
+            URL urlRubel = new URL("https://rest.entitysport.com/v2/players/358?token=43783fd83d60570454356f7ab61317c1");
+            PlayerProfile rubel = objectMapper.readValue(urlRubel, PlayerProfile.class);
+            rubel.getResponse().getPlayer().setLogo_url("https://cricket.entitysport.com/assets/uploads/2016/01/rubel-hossain-150x150.jpg");
+            playerList.add(rubel.getResponse().getPlayer());
+
+
+            URL playersUrl = new URL("https://rest.entitysport.com/v2/players?country=bd&paged=1&per_page=30&token=43783fd83d60570454356f7ab61317c1");
+            PlayerSearch playerSearch = objectMapper.readValue(playersUrl,PlayerSearch.class);
+            List<Player> list = playerSearch.getResponse().getItems();
+
+            for(Player player : list)
+            {
+                playerList.add(player);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return playerList;
+    }
+
+    @Override
+    public Player getPlayerInfo(Integer id) {
+        Player player = null;
+
+        String url = "https://rest.entitysport.com/v2/players/"+id+"?token=43783fd83d60570454356f7ab61317c1";
+        try{
+            URL playerUrl = new URL(url.toString());
+            PlayerProfile playerProfile = objectMapper.readValue(playerUrl, PlayerProfile.class);
+            player = playerProfile.getResponse().getPlayer();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+       return player;
+    }
 }

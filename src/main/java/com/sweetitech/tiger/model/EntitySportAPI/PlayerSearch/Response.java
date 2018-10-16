@@ -1,14 +1,18 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerSearch;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sweetitech.tiger.model.EntitySportAPI.CompetitionTeams.Player;
 
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
     private String status;
 
-    private List<Player> playerList;
+    private List<Player> items;
 
     private String total_items;
 
@@ -22,12 +26,12 @@ public class Response {
         this.status = status;
     }
 
-    public List<Player> getPlayerList() {
-        return playerList;
+    public List<Player> getItems() {
+        return items;
     }
 
-    public void setPlayerList(List<Player> playerList) {
-        this.playerList = playerList;
+    public void setItems(List<Player> items) {
+        this.items = items;
     }
 
     public String getTotal_items() {

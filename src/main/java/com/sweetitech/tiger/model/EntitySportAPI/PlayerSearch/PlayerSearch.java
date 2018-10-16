@@ -1,7 +1,10 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerSearch;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PlayerSearch {
 
     private String status;
@@ -10,11 +13,11 @@ public class PlayerSearch {
 
     private String etag;
 
-    private Date modified;
+    private String modified;
 
-    private Date datetime;
+    private String datetime;
 
-    private String apiVersion;
+    private String api_version;
 
     public String getStatus() {
         return status;
@@ -40,27 +43,27 @@ public class PlayerSearch {
         this.etag = etag;
     }
 
-    public Date getModified() {
+    public String getModified() {
         return modified;
     }
 
-    public void setModified(Date modified) {
+    public void setModified(String modified) {
         this.modified = modified;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 
-    public String getApiVersion() {
-        return apiVersion;
+    public String getApi_version() {
+        return api_version;
     }
 
-    public void setApiVersion(String apiVersion) {
-        this.apiVersion = apiVersion;
+    public void setApi_version(String api_version) {
+        this.api_version = api_version;
     }
 }

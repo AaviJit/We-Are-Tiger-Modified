@@ -1,6 +1,5 @@
 package com.sweetitech.tiger.service.EntitySportsService;
-
-
+import com.sweetitech.tiger.model.EntitySportAPI.CompetitionTeams.Player;
 import com.sweetitech.tiger.model.cricketapi.Card;
 import com.sweetitech.tiger.model.cricketapi.CardCustomForOni;
 import com.sweetitech.tiger.model.cricketapi.CustomOniObjectForShortCard;
@@ -14,5 +13,9 @@ public interface EntitySportsCricketApiService {
     public List<Card> getCurrentMatches();
     public List<Card> getUpcomingMatchs();
     CustomOniObjectForShortCard getRecentMatchesShortCard();
+    List<Player> playerList();
+    Player getPlayerInfo(Integer id);
+
+
 
 }

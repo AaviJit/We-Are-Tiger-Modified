@@ -1,7 +1,10 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerProfile;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PlayerProfile {
 
     private String status;

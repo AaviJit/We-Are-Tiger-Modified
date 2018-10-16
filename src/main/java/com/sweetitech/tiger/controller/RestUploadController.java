@@ -75,10 +75,11 @@ public class RestUploadController {
 			return new ResponseEntity("Maximum file size exceeds", HttpStatus.FORBIDDEN);
 			
 		}catch (Exception e) {
+		    e.printStackTrace();
 			System.out.println("just an exception");
 			System.out.println(e.getStackTrace().toString());
 			System.out.println(e.getLocalizedMessage());
-			return new ResponseEntity("Some thing went wrong please try again later", HttpStatus.BAD_GATEWAY);
+			return new ResponseEntity("Something went wrong please try again later", HttpStatus.BAD_GATEWAY);
 		}
 		
 
