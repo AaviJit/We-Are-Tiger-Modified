@@ -2,13 +2,14 @@ package com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic;
 
 import com.sweetitech.tiger.model.EntitySportAPI.CompetitionTeams.Player;
 
+
 public class Response {
 
-    private Player player;
+    /*private Player player;
 
-    private BattingStatistic battingStatistic;
+    private BattingStatistic batting;
 
-    private BowlingStatistic bowlingStatistic;
+    private BowlingStatistic bowling;
 
     public Player getPlayer() {
         return player;
@@ -18,19 +19,19 @@ public class Response {
         this.player = player;
     }
 
-    public BattingStatistic getBattingStatistic() {
-        return battingStatistic;
+    public BattingStatistic getBatting() {
+        return batting;
     }
 
-    public void setBattingStatistic(BattingStatistic battingStatistic) {
-        this.battingStatistic = battingStatistic;
+    public void setBatting(BattingStatistic batting) {
+        this.batting = batting;
     }
 
-    public BowlingStatistic getBowlingStatistic() {
-        return bowlingStatistic;
+    public BowlingStatistic getBowling() {
+        return bowling;
     }
 
-    public void setBowlingStatistic(BowlingStatistic bowlingStatistic) {
-        this.bowlingStatistic = bowlingStatistic;
-    }
+    public void setBowling(BowlingStatistic bowling) {
+        this.bowling = bowling;
+    }*/
 }

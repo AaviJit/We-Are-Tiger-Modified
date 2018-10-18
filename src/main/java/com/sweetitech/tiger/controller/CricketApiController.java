@@ -3,6 +3,7 @@ package com.sweetitech.tiger.controller;
 import java.util.List;
 
 import com.sweetitech.tiger.model.EntitySportAPI.CompetitionTeams.Player;
+import com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic.PlayerStatisticResponse;
 import com.sweetitech.tiger.service.EntitySportsService.EntitySportsCricketApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -75,17 +76,13 @@ public class CricketApiController {
 		return new ResponseEntity<CustomOniObjectForShortCard>(entitySportsCricketApiService.getRecentMatchesShortCard(), HttpStatus.OK);
 	}
 
+	//controller working good
 	@GetMapping("/bd/playerlist")
 	@ResponseBody
 	public ResponseEntity<List<Player>> getPlayerList()
 	{
 		return new ResponseEntity<List<Player>>(entitySportsCricketApiService.playerList(), HttpStatus.OK);
 	}
-
-
-
-
-   //my code ends here
 
 	//controller working good
 	@GetMapping("/showSummary")
@@ -94,13 +91,15 @@ public class CricketApiController {
 	{
 		return new ResponseEntity<CardCustomForOni>(entitySportsCricketApiService.getMatchInfo(matchKey), HttpStatus.OK);
 	}
-	@GetMapping("/player/showProfile")
-	@ResponseBody
-	public ResponseEntity<Player> getIndividualPlayer(Integer id)
-	{
-		return new ResponseEntity<Player>(entitySportsCricketApiService.getPlayerInfo(id), HttpStatus.OK);
-	}
 
+
+	@GetMapping("/player/profile")
+	@ResponseBody
+	public ResponseEntity<PlayerStatisticResponse> getIndividualPlayer(@RequestParam("id")Integer id)
+	{
+		return new ResponseEntity<PlayerStatisticResponse>(entitySportsCricketApiService.getPlayerInfo(id), HttpStatus.OK);
+	}
+	//my code ends here
 
 
 

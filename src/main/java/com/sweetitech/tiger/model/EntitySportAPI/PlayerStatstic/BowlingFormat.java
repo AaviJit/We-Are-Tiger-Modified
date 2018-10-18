@@ -1,5 +1,10 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BowlingFormat {
 
     private Integer match_id;

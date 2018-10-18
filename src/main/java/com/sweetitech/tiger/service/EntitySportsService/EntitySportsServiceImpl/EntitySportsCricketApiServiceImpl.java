@@ -8,6 +8,8 @@ import com.sweetitech.tiger.model.EntitySportAPI.LiveMatch.LiveMatch;
 import com.sweetitech.tiger.model.EntitySportAPI.MatchScorecard.MatchScorecard;
 import com.sweetitech.tiger.model.EntitySportAPI.PlayerProfile.PlayerProfile;
 import com.sweetitech.tiger.model.EntitySportAPI.PlayerSearch.PlayerSearch;
+import com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic.PlayerStatistic;
+import com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic.PlayerStatisticResponse;
 import com.sweetitech.tiger.model.EntitySportAPI.RecentMatches.RecentMatches;
 import com.sweetitech.tiger.model.cricketapi.*;
 import com.sweetitech.tiger.parser.sampleMatchScorecardParser;
@@ -423,14 +425,15 @@ public class EntitySportsCricketApiServiceImpl implements EntitySportsCricketApi
     }
 
     @Override
-    public Player getPlayerInfo(Integer id) {
-        Player player = null;
+    public PlayerStatisticResponse getPlayerInfo(Integer id) {
 
-        String url = "https://rest.entitysport.com/v2/players/"+id+"?token=43783fd83d60570454356f7ab61317c1";
+        PlayerStatisticResponse player = null;
+
+        String url = "https://rest.entitysport.com/v2/players/"+id+"/stats?token=43783fd83d60570454356f7ab61317c1";
         try{
             URL playerUrl = new URL(url.toString());
-            PlayerProfile playerProfile = objectMapper.readValue(playerUrl, PlayerProfile.class);
-            player = playerProfile.getResponse().getPlayer();
+            PlayerStatistic playerStatistic = objectMapper.readValue(playerUrl, PlayerStatistic.class);
+            player = playerStatistic.getResponse();
         }
         catch (Exception e)
         {

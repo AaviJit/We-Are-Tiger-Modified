@@ -1,18 +1,21 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PlayerStatistic {
 
     private String status;
 
-    private Response response;
+    private PlayerStatisticResponse response;
 
     private String etag;
 
-    private Date modified;
+    private String modified;
 
-    private Date datetime;
+    private String datetime;
 
     private String api_version;
 
@@ -24,11 +27,11 @@ public class PlayerStatistic {
         this.status = status;
     }
 
-    public Response getResponse() {
+    public PlayerStatisticResponse getResponse() {
         return response;
     }
 
-    public void setResponse(Response response) {
+    public void setResponse(PlayerStatisticResponse response) {
         this.response = response;
     }
 
@@ -40,19 +43,19 @@ public class PlayerStatistic {
         this.etag = etag;
     }
 
-    public Date getModified() {
+    public String getModified() {
         return modified;
     }
 
-    public void setModified(Date modified) {
+    public void setModified(String modified) {
         this.modified = modified;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 
@@ -62,5 +65,17 @@ public class PlayerStatistic {
 
     public void setApi_version(String api_version) {
         this.api_version = api_version;
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerStatistic{" +
+                "status='" + status + '\'' +
+                ", response=" + response +
+                ", etag='" + etag + '\'' +
+                ", modified='" + modified + '\'' +
+                ", datetime='" + datetime + '\'' +
+                ", api_version='" + api_version + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,10 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BattingFormat {
 
     private Integer match_id;
@@ -16,7 +21,7 @@ public class BattingFormat {
 
     private Integer balls;
 
-    private Integer highest;
+    private String highest;
 
     private Integer run100;
 
@@ -90,11 +95,11 @@ public class BattingFormat {
         this.balls = balls;
     }
 
-    public Integer getHighest() {
+    public String getHighest() {
         return highest;
     }
 
-    public void setHighest(Integer highest) {
+    public void setHighest(String highest) {
         this.highest = highest;
     }
 

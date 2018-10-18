@@ -1,5 +1,10 @@
 package com.sweetitech.tiger.model.EntitySportAPI.PlayerStatstic;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BattingStatistic {
 
     private BattingFormat test;
@@ -60,5 +65,17 @@ public class BattingStatistic {
 
     public void setFirstclass(BattingFormat firstclass) {
         this.firstclass = firstclass;
+    }
+
+    @Override
+    public String toString() {
+        return "BattingStatistic{" +
+                "test=" + test +
+                ", odi=" + odi +
+                ", t20i=" + t20i +
+                ", t20=" + t20 +
+                ", lista=" + lista +
+                ", firstclass=" + firstclass +
+                '}';
     }
 }
