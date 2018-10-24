@@ -15,9 +15,7 @@ public class WIC {
     public Long id;
 
     public Float latitude;
-
     public Float longitude;
-
     public String division;
     public String address;
     public String phone;

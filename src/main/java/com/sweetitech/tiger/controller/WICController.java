@@ -137,9 +137,14 @@ public class WICController {
 	// returns lastest PAGE_SIZE number of wic
 	@GetMapping("/")
 	public @ResponseBody Page<WIC> showAllWIC() {
-
 		Page<WIC> wicList = wicService.findAllWIC(0);
 		return wicList;
+	}
+
+
+	@GetMapping("/wiclist")
+	public @ResponseBody List<WIC> showWICList() {
+		return  wicService.findAll();
 	}
 	@GetMapping("/page")
 	public @ResponseBody Page<WIC> showAllWICByPage(@RequestParam(value = "page", required = true) int page) {

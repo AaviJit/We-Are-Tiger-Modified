@@ -4,12 +4,16 @@ import com.sweetitech.tiger.model.WIC;
 import com.sweetitech.tiger.model.WIC;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
+
 
 public interface IWICService {
 
 	WIC addWIC(WIC wic);
 	Page<WIC> findAllWIC(int page);
-	//void deleteWIC(WIC news);
+
+	List<WIC> findAll();
+
 	WIC findById(Long id);
 
 	WIC updateWIC(WIC wic);
